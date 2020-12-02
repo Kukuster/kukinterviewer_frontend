@@ -33,12 +33,10 @@ const html_pages = [
 
 const config = {
 
-    mode: 'development',
-
     entry: {
-        app:   [`./${inputPath}/app/index.tsx`,    'webpack-plugin-serve/client'],
-        home:  [`./${inputPath}/scripts/home.ts`,  'webpack-plugin-serve/client'],
-        about: [`./${inputPath}/scripts/about.ts`, 'webpack-plugin-serve/client'],
+        app:   [`./${inputPath}/app/index.tsx`,    ],
+        home:  [`./${inputPath}/scripts/home.ts`,  ],
+        about: [`./${inputPath}/scripts/about.ts`, ],
     },
 
     output: {
@@ -117,7 +115,19 @@ module.exports = (env, argv) => {
     if (!argv.mode || argv.mode === 'development'){
         console.log(); console.log('#=#=#=#=# WEBPACK MODE: development #=#=#=#=#'); console.log();
         
-        config.plugins.push(new Serve({ static: outputPath_full })); 
+        config.mode = 'development';
+
+        config.devtool = 'inline-source-map';
+
+        if (!env.NOWATCH){
+            for (const chunk in config.entry) {
+                if (Array.isArray(config.entry[chunk])) {
+                    config.entry[chunk].push('webpack-plugin-serve/client');
+                }
+            }
+
+            config.plugins.push(new Serve({ static: outputPath_full }));
+        }
 
         html_pages.forEach(p => {
             p.minify = {
@@ -147,11 +157,6 @@ module.exports = (env, argv) => {
         console.log(); console.log('#=#=#=#=# WEBPACK MODE: production #=#=#=#=#'); console.log();
         config.mode = 'production';
         // config.devServer.liveReload = false;
-        config.entry = {
-            app:    [`./${inputPath}/app/index.tsx`],
-            home:   [`./${inputPath}/scripts/home.ts`],
-            about:  [`./${inputPath}/scripts/about.ts`],
-        };
 
         html_pages.forEach( p => {
             p.minify = {
@@ -177,11 +182,24 @@ module.exports = (env, argv) => {
 
     }
 
+    if (env.NOWATCH){
+        config.plugins.push({
+            apply: (compiler) => {
+                compiler.hooks.done.tap('DonePlugin', (stats) => {
+                    console.log('Compile is done !');
+                    setTimeout(() => {
+                        process.exit(0)
+                    });
+                });
+            }
+        });
+    }
+
 
     config.plugins.push(...(html_pages.map(f => new HtmlWebpackPlugin(f))))
 
 
     return config;
 
-}
+} // module.exports = (...) => {...}
 
