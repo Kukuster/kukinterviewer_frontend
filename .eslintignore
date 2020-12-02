@@ -1,0 +1,15 @@
+node_modules
+dist
+*.md
+*.txt
+*.json
+*.yaml
+*.yml
+jest.config.js
+webpack.config.js
+*.sh
+
+LICENSE
+*.html
+*.css
+

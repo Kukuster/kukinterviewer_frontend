@@ -1,0 +1,14 @@
+html, body, input, textarea, select, button {
+    border-color: #797164;
+    color: #eeece9;
+    background-color: #1e2021;
+}
+
+h1 {
+    color: rgb(213, 209, 202);
+    text-align: center;
+}
+
+.content {
+    padding-right: 180px;
+}
