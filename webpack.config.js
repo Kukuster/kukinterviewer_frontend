@@ -27,6 +27,11 @@ const html_pages = [
         template: `./${inputPath}/html/about.html`,
         chunks: ['about']
     },
+    {
+        filename: 'html/botDebug.html',
+        template: `./${inputPath}/html/botDebug.html`,
+        chunks: ['botDebug']
+    },
 ];
 
 
@@ -34,9 +39,10 @@ const html_pages = [
 const config = {
 
     entry: {
-        app:   [`./${inputPath}/app/index.tsx`,    ],
-        home:  [`./${inputPath}/scripts/home.ts`,  ],
-        about: [`./${inputPath}/scripts/about.ts`, ],
+        app:      [`./${inputPath}/app/index.tsx`,       ],
+        home:     [`./${inputPath}/scripts/home.ts`,     ],
+        about:    [`./${inputPath}/scripts/about.ts`,    ],
+        botDebug: [`./${inputPath}/scripts/botDebug.ts`, ],
     },
 
     output: {

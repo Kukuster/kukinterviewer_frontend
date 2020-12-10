@@ -1,0 +1,138 @@
+html, body, input, textarea, select, button {
+    border-color: #797164;
+    color: #eeece9;
+    background-color: #1e2021;
+}
+
+h1 {
+    color: rgb(213, 209, 202);
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+h2 {
+    text-align: center;
+    font-weight: 100;
+    color: rgb(163, 163, 163);
+}
+
+.inject > p {
+    margin: 30, auto;
+    font-size: 1.5em;
+}
+
+.content {
+    padding-right: 180px;
+}
+
+
+
+.submitCrap {
+    background-color: #4f9f4f;
+    width: 660px;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    
+    top: 100px; /* Stay at the top */
+    left: 50%;
+
+    opacity: 0.5;
+
+}
+
+form.sendMessage {
+    
+    background-color: #1e2041;
+    
+
+    height: auto; /* Full-height: remove this if you want "auto" height */
+    width: 50%;
+    min-width: 600px;
+
+    margin: auto;
+    overflow: hidden;
+
+    
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding: 20px;
+
+    
+    border-style: solid;
+    border-width: 10px;
+    border-color: rgb(16, 14, 131);
+    
+}
+
+
+form.sendMessage .form-half-column {
+    width: 49%;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+
+form.sendMessage label {
+    display: block;
+    margin: 5px 5px 5px 0;
+    font-size: 1.5em;
+    font-family: monospace;
+}
+
+
+form.sendMessage input {
+    margin-bottom: 5px;
+}
+form.sendMessage textarea {
+    width: 100%;
+    resize: vertical;
+    font-size: 0.7em;
+}
+
+
+form.sendMessage textarea::placeholder {
+    color: #adadad7f;
+}
+
+
+
+
+
+
+
+
+
+
+.submitted { 
+    animation: Fade 1s linear 0.5s forwards;
+}
+@keyframes Fade {
+    0% {opacity: 0;}
+    25% {opacity: 0.25;}
+    50% {opacity: 0.5;}
+    75% {opacity: 0.75;}
+    100% {opacity: 1;}
+}
+
+/* 
+#element {
+    background-color: yellow;
+    opacity: 0;
+}
+#element.animateMe {
+    animation: Fade 3s linear 1s forwards;
+}
+.spacer {
+    height: 100vh;
+}
+@keyframes Fade {
+    0% {opacity: 0;}
+    25% {opacity: 0.25;}
+    50% {opacity: 0.5;}
+    75% {opacity: 0.75;}
+    100% {opacity: 1;}
+}
+ */

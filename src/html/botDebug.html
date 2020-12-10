@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>botDebug</title>
+</head>
+
+<body>
+                
+    <div class="sendMessage_container">
+        <h2><code>bot.sendMessage</code></h2>
+        <!-- <div class="submitCrap"></div> -->
+        <form id="sendMessage_form" class="sendMessage" action="/bot-sendMessage" method="post">
+            <div class="form-half-column">
+                <label for="chatId">chatId</label>
+                <input type="text" id="chatId" name="chatId" placeholder="chatId" value="231079996" required><br>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="password">
+            </div>
+            <div class="form-half-column">
+                <label for="parse_mode">parse_mode</label>
+                <select name="parse_mode" id="parse_mode">
+                    <option value=""></option>
+                    <option value="Markdown">Markdown</option>
+                    <option value="MarkdownV2">MarkdownV2</option>
+                    <option value="HTML">HTML</option>
+                </select>
+                <label for="emojify">Emojify</label>
+                <input type="checkbox" id="emojify" name="emojify" checked>
+            </div>
+            <label for="message">Message text</label>
+            <textarea id="message" name="message" placeholder="Write a message..." required></textarea><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</body>
+
+</html>
